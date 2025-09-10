@@ -1,0 +1,102 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: gray;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    margin: 0;
+    height: 100vh;
+    background: black url("https://www.transparenttextures.com/patterns/stardust.png");
+    animation: stars 60s linear infinite
+}
+
+@keyframes stars {
+  from { background-position: 0 0; }
+  to { background-position: -10000px 5000px; }
+}
+.container{
+    color: white;
+    postition: relative;
+    flex-direction: column;
+    width: 500px;
+    margin: 0 auto;
+    height: 400px;
+    background: linear-gradient(270deg, #d23b7b,  	#652366, #f15050);
+    animation: gradientBG 12s ease infinite;
+    background-size: 800% 800%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(210, 59, 123, 0.8),
+              0 0 40px rgba(101, 35, 102, 0.6),
+              0 0 60px rgba(241, 80, 80, 0.4);
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+.sicaklikDiv, .hissedilenDiv, .konumDiv{
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.location{
+    width: 35px;
+    height: 35px;
+    margin-top: 10px;
+}
+.thermometer{
+    width: 35px;
+    height: 35px;
+}
+.konumDiv{
+    position: relative;
+    bottom: 50px;
+
+}
+.sicaklikDiv{
+    position: relative;
+    top: 40px;
+}
+.sicaklikDiv, .konumDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; 
+}
+.tarihDiv {
+  font-size: 20px;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+  margin-left: -20px;
+  color: #eee;
+}
+.container:hover {
+  transform: scale(1.02);
+}
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+    height: auto;
+    padding: 15px;
+  }
+  .sicaklikDiv, .konumDiv {
+    font-size: 32px;
+  }
+}

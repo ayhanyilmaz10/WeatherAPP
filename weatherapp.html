@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>WeatherApp</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+
+    <div class="container">
+        <h1>WeatherApp</h1>
+    <div class=sicaklikDiv id="sicaklikDiv">Sicaklik
+        <img class=thermometer src="thermometer.png" alt="">
+    </div>
+    <div class=konumDiv id="konumDiv">Konum
+        <img class="location" src="location.png" alt="">
+    </div>
+    <div id="tarihDiv" class="tarihDiv"></div>
+    </div>
+    
+
+
+    <script>
+        
+        
+
+        const sicaklikDiv = document.getElementById("sicaklikDiv");
+        const konumDiv = document.getElementById("konumDiv");
+        const tarihDiv = document.getElementById("tarihDiv");
+        function updateTime() {
+        const now = new Date();
+        document.getElementById("tarihDiv").innerText = now.toLocaleString("tr-TR");
+        }
+
+         // İlk başta hemen çalıştır
+        updateTime();
+
+        // Sonra her 1 saniyede bir güncelle
+        setInterval(updateTime, 1000);
+
+
+        async function getWeather(){ 
+            const API_URL = "https://api.openweathermap.org/data/2.5/weather?lat=40.9882728&lon=29.0343543&appid=7af7f5cd02de0873210bc25a798aa0f0&units=metric&lang=tr";
+            const response = await fetch(API_URL);
+            const weather = await response.json();  
+            sicaklikDiv.innerHTML = weather.main.temp + "°C" +'<img class="thermometer" src="thermometer.png" alt="">'; 
+            konumDiv.innerHTML = weather.name + '<img class="location" src="location.png" alt="">';
+            
+        }
+        
+        getWeather();
+    </script>
+</body>
+</html>
